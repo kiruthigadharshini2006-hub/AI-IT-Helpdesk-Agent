@@ -10,43 +10,38 @@ The main objective of this project is to develop an AI-based IT helpdesk assista
 
 ## 🏗️ System Architecture
 
-The system follows the architecture:
+## 🏗️ System Architecture
 
-User → AI Agent → RAG + Tools → Final Response
+The AI IT Helpdesk Agent follows this architecture:
 
-The AI Agent analyzes the user's question and decides whether to retrieve information from the knowledge base or use a system diagnostic tool.
+```text
+                    USER
+                      │
+                      ▼
+               ┌─────────────┐
+               │  AI AGENT   │
+               │  Decision   │
+               └──────┬──────┘
+                      │
+              ┌───────┴────────┐
+              │                │
+              ▼                ▼
+        ┌───────────┐    ┌────────────┐
+        │    RAG    │    │   TOOLS    │
+        └─────┬─────┘    └─────┬──────┘
+              │                │
+              ▼          ┌─────┴─────┐
+       IT Knowledge      │           │
+          Base       System Info  Disk Space
+              │          Tool        Tool
+              │             │          │
+              └─────────────┴──────────┘
+                            │
+                            ▼
+                    FINAL RESPONSE
+```
 
-## 🧠 Key Components
-
-### 1. AI Agent
-
-The AI Agent acts as the decision-making component of the system. It analyzes the user's query and determines the appropriate action.
-
-### 2. Retrieval-Augmented Generation (RAG)
-
-RAG is used to retrieve relevant information from the IT Helpdesk Knowledge Base. This allows the system to provide troubleshooting information based on the stored IT support documentation.
-
-The knowledge base contains information about:
-
-- Password reset
-- Wi-Fi connection problems
-- Slow computers
-- Email problems
-- Software installation
-- Printer problems
-- VPN problems
-- Locked accounts
-- Hardware problems
-- IT support tickets
-
-### 3. System Diagnostic Tools
-
-The project includes tools that can directly check system information.
-
-The available tools are:
-
-- System Information Tool – retrieves operating system, OS version, machine type, and processor information.
-- Disk Space Tool – checks total, used, and available disk space.
+The AI Agent analyzes the user's question and determines whether to retrieve information from the IT knowledge base using RAG or use a system diagnostic tool.
 
 ## 🛠️ Technologies Used
 
